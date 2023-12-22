@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+
+  filedrop:
+    image: noecl/filedrop:1.0.1
+    container_name: filedrop
+    ports:
+      - "8200:8000"   
+    environment:
+      PGID: 1000
+      PUID: 1000
+      TZ: Europe/Madrid
+    restart: unless-stopped
+    volumes:
+      - ./file_drop_files:/var/file_drop_files
